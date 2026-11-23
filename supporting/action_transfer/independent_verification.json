@@ -1,0 +1,65 @@
+{
+  "frozen_plan_sha256": "997dcdfeb3a5086ee32e252cdd6a3716faddd2f7227076a44b24e4bae1b60d02",
+  "verified_roster": 16,
+  "raw_selected_cases": 576,
+  "confirmation_and_fitting_families_disjoint": true,
+  "matched_incoming_molecules_within_family_and_spacing": true,
+  "raw_training_passive_species_scales_verified": true,
+  "scorer": "independent; no model or scoring code imports",
+  "prediction_checks": {
+    "response_max": 2.9041951393082854e-05,
+    "response_rms": 1.0923851714248734e-06,
+    "path_max": 4.02157643648593e-05,
+    "path_rms": 1.2502009680886075e-06,
+    "positive_control": 0.0,
+    "maximum_conservation_residual": 9.237055564881302e-13,
+    "maximum_first_jump_error": 3.552713678800501e-15
+  },
+  "scores": {
+    "unseen_delay": {
+      "raw_response_nmse": {
+        "C32": 0.027930695384785965,
+        "C64": 0.028790467238154288,
+        "Learned moments": 0.023378494558949386,
+        "Physical moments": 0.20302106499724226
+      },
+      "moments_minus_comparator": {
+        "C64": [
+          -0.005411972679204897,
+          -0.008260207998315758,
+          -0.002752036104538887
+        ],
+        "C32": [
+          -0.00455220082583658,
+          -0.007324721933883875,
+          -0.0018541615766517624
+        ]
+      }
+    },
+    "three_pulse": {
+      "raw_response_nmse": {
+        "C32": 0.06874303998512815,
+        "C64": 0.07537954150427426,
+        "Learned moments": 0.025522327189492273,
+        "Physical moments": 0.2698845238824756
+      },
+      "moments_minus_comparator": {
+        "C64": [
+          -0.04985721431478198,
+          -0.05700778973719485,
+          -0.042914113248866126
+        ],
+        "C32": [
+          -0.043220712795635864,
+          -0.04879546882850844,
+          -0.037930575362382195
+        ]
+      }
+    }
+  },
+  "native_trajectories_reaggregated": 73728,
+  "archived_native_batches": 288,
+  "bootstrap_resamples": 4000,
+  "primary_score_sha256": "ab9e7d147b4f64becbb5de604a3b965fd460854291088ab43c841bd433b636ce",
+  "script_sha256": "4031ac3605538047c6439517cdff980737795aaa71faaa659e65aac6e9a10c19"
+}

@@ -1,0 +1,51 @@
+{
+  "study": "Predicting Pulse Responses in Water Radiolysis with Compact World Models",
+  "training_protocol_sha256": "a1bfb3aca77cc18f202e1c464139327e7b155c6eb31f2d2839294e5661cf90cd",
+  "checkpoint_freeze_sha256": "7c4d1e0b36651c3da66639f96131f64ecd30ac4a02e0895a47b11fac4d8d2e0a",
+  "evaluation_freeze_sha256": "aade73e1a0d4bcb7520f9f4894a98e22a545cc22b5f3c9672e8fe7c9442720ea",
+  "source_modules": {
+    "recurrent.py": {
+      "study_path": "modeling/recurrent.py",
+      "source_sha256": "acc38aa5f052df4d8901e5b7a606339eed8ddcf253647e656839084fb2694963",
+      "packaged_sha256": "acc38aa5f052df4d8901e5b7a606339eed8ddcf253647e656839084fb2694963"
+    },
+    "network.py": {
+      "study_path": "modeling/network.py",
+      "source_sha256": "685bda0582b56f2c949d90f77759879fe4b85f64b5e2cba314ed72f70dca28ec",
+      "packaged_sha256": "685bda0582b56f2c949d90f77759879fe4b85f64b5e2cba314ed72f70dca28ec"
+    },
+    "data_contract.py": {
+      "study_path": "modeling/data_contract.py",
+      "source_sha256": "3e8f55665290643fc78bd8dc095469e2ab058fef4da515b90b516f1ee3b5f3cd",
+      "packaged_sha256": "e86180ce36e9cb1df4ca6fb12eb7aa4ec94da47ee654ad32b37b17c6910c197b"
+    },
+    "solver.py": {
+      "study_path": "extension/numerics/solver.py",
+      "source_sha256": "cf775ed200b0b2227a8864e97e8698ea87c6beff77c99f32111858ff0abe3d4e",
+      "packaged_sha256": "b5a61f5f04870c32dc00efb9b1c3c31c1b6583afeb257163d2b37c272e1705c0"
+    },
+    "models.py": {
+      "study_path": "extension/strengthening_v1/training/models.py",
+      "source_sha256": "3cc6505d11859f7ed1b05100a11b4e8201f40b8f139d7e3740be5d14205b3bc0",
+      "packaged_sha256": "578ce569eb7a2bc9a6d386721a041a1d0e523c4313b7a66fa822c67215da9934"
+    }
+  },
+  "source_changes": "The packaged model and solver use relative imports. The array contract keeps the public-input path and omits training-data loaders. The original architecture, public-input encoding and numerical update are retained.",
+  "model_release_sha256": "9349a23d20f24eb64050f6539bccc3732c51e78d4b5b4c505dc61d44a5f43505",
+  "confirmation_cases": {
+    "energy100": {
+      "case_count": 256,
+      "source_file": "cases_energy100.json",
+      "source_sha256": "57eec3679d6d1d716963a911ce15daac5186e743b4ee3c44e12212afeac8a261",
+      "case_file": "cases/energy100.json.gz",
+      "case_file_sha256": "bdaeae00dc1092f7971817a22d404326553757601a6cec047e396e1f5a0b63a3"
+    },
+    "energy400": {
+      "case_count": 256,
+      "source_file": "cases_energy400.json",
+      "source_sha256": "79e0df4f80a93a1fba6b2a555be2035976d35b979426aeed6fd1c8ce7e4edf55",
+      "case_file": "cases/energy400.json.gz",
+      "case_file_sha256": "66c7913222f93296cafaa502b40ec1fa2c2d7769b10f2784d74c86b48d1a3e10"
+    }
+  }
+}

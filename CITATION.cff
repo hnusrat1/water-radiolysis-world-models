@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using these models, data and replay scripts."
+title: "Water radiolysis world models and reproducibility code"
+type: software
+authors:
+  - given-names: Humza
+    family-names: Nusrat
+    affiliation: "Department of Radiation Oncology, Henry Ford Health, Detroit, Michigan, USA, and Department of Radiology, Michigan State University, East Lansing, Michigan, USA"
+  - given-names: Omar
+    family-names: Nusrat
+    affiliation: "Toronto Metropolitan University, Toronto, Ontario, Canada"
+preferred-citation:
+  type: unpublished
+  title: "Predicting Pulse Responses in Water Radiolysis with Compact World Models"
+  year: 2026
+  authors:
+    - given-names: Humza
+      family-names: Nusrat
+      affiliation: "Department of Radiation Oncology, Henry Ford Health, Detroit, Michigan, USA, and Department of Radiology, Michigan State University, East Lansing, Michigan, USA"
+    - given-names: Omar
+      family-names: Nusrat
+      affiliation: "Toronto Metropolitan University, Toronto, Ontario, Canada"

@@ -1,0 +1,247 @@
+{
+  "created_utc": "2026-11-21T22:56:59.540436+00:00",
+  "status": "exploratory follow-up to published source-transfer design",
+  "previous_information": "Original first-order results on these 200 eV cases are known. New-fit action outcomes have not been scored.",
+  "roster": [
+    [
+      "refit_compact32_active",
+      1701
+    ],
+    [
+      "refit_compact32_active",
+      1702
+    ],
+    [
+      "refit_compact32_active",
+      1703
+    ],
+    [
+      "refit_compact32_active",
+      1704
+    ],
+    [
+      "refit_compact32_active",
+      1705
+    ],
+    [
+      "refit_compact64_active",
+      1701
+    ],
+    [
+      "refit_compact64_active",
+      1702
+    ],
+    [
+      "refit_compact64_active",
+      1703
+    ],
+    [
+      "refit_compact64_active",
+      1704
+    ],
+    [
+      "refit_compact64_active",
+      1705
+    ],
+    [
+      "refit_moment_learned",
+      1701
+    ],
+    [
+      "refit_moment_learned",
+      1702
+    ],
+    [
+      "refit_moment_learned",
+      1703
+    ],
+    [
+      "refit_moment_learned",
+      1704
+    ],
+    [
+      "refit_moment_learned",
+      1705
+    ],
+    [
+      "moment_physics",
+      0
+    ]
+  ],
+  "family_ids": [
+    "20160",
+    "20161",
+    "20162",
+    "20163",
+    "20164",
+    "20165",
+    "20166",
+    "20167",
+    "20168",
+    "20169",
+    "20170",
+    "20171",
+    "20172",
+    "20173",
+    "20174",
+    "20175",
+    "20176",
+    "20177",
+    "20178",
+    "20179",
+    "20180",
+    "20181",
+    "20182",
+    "20183",
+    "20184",
+    "20185",
+    "20186",
+    "20187",
+    "20188",
+    "20189",
+    "20190",
+    "20191",
+    "20192",
+    "20193",
+    "20194",
+    "20195",
+    "20196",
+    "20197",
+    "20198",
+    "20199",
+    "20200",
+    "20201",
+    "20202",
+    "20203",
+    "20204",
+    "20205",
+    "20206",
+    "20207",
+    "20208",
+    "20209",
+    "20210",
+    "20211",
+    "20212",
+    "20213",
+    "20214",
+    "20215",
+    "20216",
+    "20217",
+    "20218",
+    "20219",
+    "20220",
+    "20221",
+    "20222",
+    "20223"
+  ],
+  "refinement_family_ids": [
+    "20160",
+    "20161",
+    "20162",
+    "20163",
+    "20164",
+    "20165",
+    "20166",
+    "20167"
+  ],
+  "base": "All 576 archived cases in their original order. All 16 predictors. Source energy fixed at 200 eV.",
+  "strata": {
+    "unseen_delay": "384 simultaneous pulse cases at 3 or 5 ns (three offsets at each time for 64 families)",
+    "three_pulse": "192 three-pulse cases at 1, 5 and 10 ns (three offsets for 64 families)"
+  },
+  "reference": "Original independent passive and forced SBS means with 64 paths per branch. Postaddition counts at injection time.",
+  "native_label_sha256": "5beb166034b62a1e0de03bf5c743cc19bd16b6487553dab9b7ea746a4b7106f7",
+  "method": "Squared terminal pulse-minus-passive count error divided by squared training species scales, averaged over seven species, individual fits, actions within family and families within each stratum.",
+  "bootstrap": {
+    "resamples": 4000,
+    "seed": 514817,
+    "unit": "whole family",
+    "approximation": "descriptive percentile, 2.5th and 97.5th, paired moments minus each of C64 and C32. Use one shared family-index draw matrix across both strata and contrast pairs, conditional on fixed fits, unadjusted."
+  },
+  "precision": "Archived float32 case preparation before conversion to float64; fixed solver, frozen checkpoints, population scales.",
+  "batch": 128,
+  "workers": 2,
+  "torch_threads_per_worker": 1,
+  "thresholds": {
+    "standardized_rms": 0.001,
+    "maximum_count_change": 0.05,
+    "maximum_budget_drift": 1e-08,
+    "minimum_count": -1e-08
+  },
+  "controls": {
+    "base": {
+      "max_step_ns": 0.5,
+      "max_fraction": 0.5,
+      "rtol": 1e-06,
+      "atol": 1e-08,
+      "adaptive": true,
+      "minimum_step_ns": 1e-12,
+      "max_attempts": 100000
+    },
+    "refined": {
+      "max_step_ns": 0.25,
+      "max_fraction": 0.25,
+      "rtol": 2.5e-07,
+      "atol": 2.5e-09,
+      "adaptive": true,
+      "minimum_step_ns": 1e-12,
+      "max_attempts": 100000
+    }
+  },
+  "scales": [
+    14.452812194824219,
+    12.255640029907227,
+    3.2951903343200684,
+    2.0486741065979004,
+    13.567285537719727,
+    1.4455626010894775,
+    3.9520702362060547
+  ],
+  "validation": "Base vs refined on first eight ascending families/all nine actions. Check each stratum independently and aggregate against original maximum and RMS bounds. Verify finite counts and water ledger, nonnegativity, post-jump H/O/charge/reducing equivalence and pre-first-jump identity. Reject release of new scientific scores on failed numerical or lineage checks. No tuning.",
+  "positive_control": "Repeat all 128 standard 200 eV confirmation cases for seed 1701 of each refit group and physical moments, identical archived batch preparation and case order. Require max absolute disagreement <= 1e-8 in each count and ledger. The 64 temporal families do not overlap the fresh confirmation cohort.",
+  "analysis_code_sha256": "3a87680d50cdc0ccc3453cbc13e57a85ae484c29c0633646d0675f603c0f19e2",
+  "archive_file_sha256": {
+    "dataset/main/cases_temporaltest.json": "334f4ed98b2e0181d91e302ecd2345901bda0fe8b0c0fd7a963d16228de712b6",
+    "dataset/main/labels_temporaltest_manifest.json": "e2678bbd35ecbb44c2302dbb277bb151d132603d5edaf81f5dac822a6f834818",
+    "dataset/main/cases_fitting.json": "59bf51004d156e3e67f78b28a8f63dff91bc6e0b8be2025a60fc54fa681106d3",
+    "extension/strengthening_v1/confirmation_bank/data/cases.json": "b5eba784e9c9e511ab5d0f5d0faf8bd6af7f6741bbb5a27b3639252b15616c71",
+    "extension/strengthening_v1/evaluation/protocol.json": "ce443dc30b9aeeb7c290f4b3fb0bb8a8133d44949754067b2afbd6172360b0f9",
+    "extension/strengthening_v1/evaluation/execution_freeze.json": "aade73e1a0d4bcb7520f9f4894a98e22a545cc22b5f3c9672e8fe7c9442720ea",
+    "extension/strengthening_v1/evaluation/predictions/energy200_control_base.json": "b5b5e01da218b76d47b61d7fa4c0e6f31c8f3f47856053ff21f88256c646c5f5",
+    "extension/strengthening_v1/evaluation/predictions/energy200_control_base.npz": "4b1e260ef6402e2a6b7020e2a2d6e0c7660561ae6fe85fa82b301193e38126b1",
+    "extension/strengthening_v1/training/runs/frozen_checkpoints.json": "7c4d1e0b36651c3da66639f96131f64ecd30ac4a02e0895a47b11fac4d8d2e0a",
+    "modeling/main_run/frozen_checkpoints.json": "035975003215c4a0268de78fe5e52e6d852431f6d74c5c7ceea74c6ceda1d4b7"
+  },
+  "checkpoint_sha256": {
+    "extension/strengthening_v1/training/runs/checkpoints/compact32_active_seed1701.pt": "43cc4ac23af8e83eb295bcee39b8854f4c1f8aed0ef0ba884123d1a4a57fbe2d",
+    "extension/strengthening_v1/training/runs/checkpoints/compact32_active_seed1702.pt": "ecf0b2aa9fe884ec13dd03d218892766699d84c3a50927fd9ad99f700baeadc8",
+    "extension/strengthening_v1/training/runs/checkpoints/compact32_active_seed1703.pt": "f25a980f775bae7413faee62151786fe55b1f4a126f867c8161ef7d2b7ff4702",
+    "extension/strengthening_v1/training/runs/checkpoints/compact32_active_seed1704.pt": "ecfa3631e2ed52bd60a9f209c3f23a3959114b3a060c3f1e06075f3da65ed767",
+    "extension/strengthening_v1/training/runs/checkpoints/compact32_active_seed1705.pt": "02254a605ef3b89c7da43d1f144d255a57bbf96b11b8d0f4b9336895dd349b36",
+    "extension/strengthening_v1/training/runs/checkpoints/compact64_active_seed1701.pt": "5a24f4addafa05bd27fcd730a8320829b480c8b38819b59ae4c9a63004fdd923",
+    "extension/strengthening_v1/training/runs/checkpoints/compact64_active_seed1702.pt": "32f9eda840ed3ebc560ad253d754282ca6493d1eb9652328ad1efd60e1fdffe4",
+    "extension/strengthening_v1/training/runs/checkpoints/compact64_active_seed1703.pt": "a2ae7ee050f835a47e6cabe632a9db51212d2d5c851f3b4ab1dcc33755de7926",
+    "extension/strengthening_v1/training/runs/checkpoints/compact64_active_seed1704.pt": "ec2d73f13d024e19aed424d1ec7762d831400accbe2eb97766d8d4357587981b",
+    "extension/strengthening_v1/training/runs/checkpoints/compact64_active_seed1705.pt": "f3a120ef1a94490db923834ed833fae6675f2a6d9f3ada1846860b639bc179dd",
+    "extension/strengthening_v1/training/runs/checkpoints/moment_learned_seed1701.pt": "60a164758eb7e70540b982820569cba98ce0c25e6db0667bad67b7544b175ae2",
+    "extension/strengthening_v1/training/runs/checkpoints/moment_learned_seed1702.pt": "a0a7c078e051c8ee143acf2c3a920051e606d1b8045cb39114e66805d93264b1",
+    "extension/strengthening_v1/training/runs/checkpoints/moment_learned_seed1703.pt": "00a46c091571ff1149d64c0675557e4377dbf91ec982721853121253f4f78c21",
+    "extension/strengthening_v1/training/runs/checkpoints/moment_learned_seed1704.pt": "f1209d8ae0379860b6f87fb10fcd7ff9fda183bcce5ecb060a6052c70d334995",
+    "extension/strengthening_v1/training/runs/checkpoints/moment_learned_seed1705.pt": "208186d6c4779a178e390cdcb3b3a752695d444a44cf243fa729a9e6ac2fcffc",
+    "modeling/main_run/checkpoints/moment_physics_seed0.pt": "ad523b38d3bc82970c20841f957656783e6b02ca6a91e76c59f5f5be55ad6b16"
+  },
+  "engine_sha256": {
+    "extension/strengthening_v1/evaluation/interface.py": "9f49e41ed5abcee78944829a80c053cfd8f35ee170bd574ebe92c42a13ddd09c",
+    "extension/strengthening_v1/evaluation/producer.py": "434b8dd47578653ef4c914bc02b39a80f9aa8f18067bfa5033971c58d4fd086d",
+    "extension/strengthening_v1/evaluation/numerics.py": "726c639ccac700d6e3a5603d3f6b98dac14bdb4bfbf1ba74095b3902a4491ef8",
+    "extension/strengthening_v1/evaluation/independent_audit.py": "85d3bd0ea39347cac2dcc244288768f11dfbb69000c05dbac02251d4312425e6",
+    "extension/strengthening_v1/training/models.py": "3cc6505d11859f7ed1b05100a11b4e8201f40b8f139d7e3740be5d14205b3bc0",
+    "extension/strengthening_v1/training/train.py": "91597169220914ec09162bb85a550008d2e42e4070e3706f0be8012332ac265d",
+    "extension/strengthening_v1/training/pilot.py": "86e4671f34e61da3c269540576bec6e73f1b8a5d8673c79c8fcf12d9693a219c",
+    "modeling/recurrent.py": "acc38aa5f052df4d8901e5b7a606339eed8ddcf253647e656839084fb2694963",
+    "modeling/network.py": "685bda0582b56f2c949d90f77759879fe4b85f64b5e2cba314ed72f70dca28ec",
+    "modeling/data_contract.py": "3e8f55665290643fc78bd8dc095469e2ab058fef4da515b90b516f1ee3b5f3cd",
+    "modeling/run_models.py": "208f5600abac60f8bfc1f33b8d0c0e2d3f075af7d2ced4658439310d88eb383f",
+    "extension/numerics/solver.py": "cf775ed200b0b2227a8864e97e8698ea87c6beff77c99f32111858ff0abe3d4e"
+  }
+}

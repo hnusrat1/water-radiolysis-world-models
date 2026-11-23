@@ -1,0 +1,3 @@
+The model reaction and diffusion contract follows Geant4 11.4.3 and Geant4-DNA. This product includes software developed by Members of the Geant4 Collaboration ( http://cern.ch/geant4 ). The accompanying Geant4_LICENSE.txt preserves the upstream copyright and license notice. The package contains the PyTorch inference implementation. Geant4 executables, libraries and physics data are not included.
+
+PyTorch, NumPy and Safetensors are installed separately and retain their own licenses. The study authors have not designated public reuse terms for their original code, weights or example data in this local release candidate.

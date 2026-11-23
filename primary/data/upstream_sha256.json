@@ -1,0 +1,9 @@
+{
+  "confirmation_bank/data/cases.json": "b5eba784e9c9e511ab5d0f5d0faf8bd6af7f6741bbb5a27b3639252b15616c71",
+  "confirmation_bank/data/labels_energy100.npz": "8d776232854df9f68e0e1649cf5371b6377e23f3ba84f92f4ad6e68410c20ad3",
+  "confirmation_bank/data/labels_energy400.npz": "81514f1ffce17bb9c9521b50ff7fd5c672021fbe927a9a8dc2fececfc22f4eba",
+  "confirmation_bank/protocol.json": "207638958eb2cc389f464c8ba1e34a4ef7ddfe4c0b01ba91522795ae7ca192a1",
+  "confirmation_bank/results/forecast_base.json": "6d4da772118d7eb021db2f489ce0bf4577f7c7b5632bf30846ba6d65bca1aeb7",
+  "evaluation/predictions/energy100_base.npz": "9816ba87e55819d3157407f7427e017abeae9e5b877df8d76f8094d3a77d1043",
+  "evaluation/predictions/energy400_base.npz": "00b3aa64fe0f592d7f0773f4fb61a7fb4127975bb6232d22c45459f06429d479"
+}

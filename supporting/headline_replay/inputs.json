@@ -1,0 +1,228 @@
+{
+  "data": {
+    "by_energy_eV": {
+      "100": {
+        "cases": 256,
+        "families": 64,
+        "original_C32_active_raw_response_nmse": 0.02161188566653998,
+        "original_C32_passive_raw_response_nmse": 0.12097682697626284,
+        "per_fit_raw_response_nmse": {
+          "C32": [
+            0.018411243049193622,
+            0.017170624422519785,
+            0.016586038366371476,
+            0.018631605622576236,
+            0.018343228467070576
+          ],
+          "C64": [
+            0.018017163339350425,
+            0.01936330932769709,
+            0.016578785280875027,
+            0.017071061698258325,
+            0.018432505905032093
+          ],
+          "learned_moments": [
+            0.017585726599690068,
+            0.019433878154419083,
+            0.017257570637400882,
+            0.016742256003990087,
+            0.018533579906989582
+          ]
+        },
+        "physical_moments_raw_response_nmse": 0.07860196684057906
+      },
+      "200": {
+        "cases": 128,
+        "families": 32,
+        "original_C32_active_raw_response_nmse": 0.044139284600287876,
+        "original_C32_passive_raw_response_nmse": 0.32634229807018805,
+        "per_fit_raw_response_nmse": {
+          "C32": [
+            0.039859834720571044,
+            0.03508767426635387,
+            0.03584224102804071,
+            0.04043679963444751,
+            0.040197256875220515
+          ],
+          "C64": [
+            0.03825627968650835,
+            0.043597730579018557,
+            0.03560820070546038,
+            0.04137747271909295,
+            0.039620036528192126
+          ],
+          "learned_moments": [
+            0.024200968351487176,
+            0.02649889248847363,
+            0.025081050585119065,
+            0.025205147182185354,
+            0.026019507756293535
+          ]
+        },
+        "physical_moments_raw_response_nmse": 0.2908920023691392
+      },
+      "400": {
+        "cases": 256,
+        "families": 64,
+        "original_C32_active_raw_response_nmse": 0.1848950348310492,
+        "original_C32_passive_raw_response_nmse": 1.0038263770355402,
+        "per_fit_raw_response_nmse": {
+          "C32": [
+            0.12554406924987227,
+            0.14838375901552767,
+            0.15036838720638446,
+            0.1578823611134213,
+            0.10727902238571393
+          ],
+          "C64": [
+            0.17176748255114255,
+            0.20578098313307575,
+            0.17438181127398,
+            0.18993067224491045,
+            0.1871484557926912
+          ],
+          "learned_moments": [
+            0.06719836495486975,
+            0.11546639321396149,
+            0.06735792883191168,
+            0.06559321451870662,
+            0.08502087032364335
+          ]
+        },
+        "physical_moments_raw_response_nmse": 1.0575972926311163
+      }
+    },
+    "fitting_CPU_seconds_1701": 21934.004398,
+    "forecast_400eV": {
+      "CPU_seconds_all_three_repeats": {
+        "IRT_64_paths_per_arm": [
+          74.291588,
+          74.916194,
+          74.941653
+        ],
+        "learned_moments_1701": [
+          3.930478,
+          3.937445,
+          3.947918
+        ]
+      },
+      "irt64_raw_response_nmse": 0.06845597475242661,
+      "timed_paired_cases": 32
+    },
+    "seeds_in_array_order": [
+      1701,
+      1702,
+      1703,
+      1704,
+      1705
+    ],
+    "state_bytes_per_branch": {
+      "C32": 352,
+      "C64": 608,
+      "learned_moments": 600
+    },
+    "yield_400eV": {
+      "CPU_seconds_all_three_repeats": {
+        "acquire_64": [
+          1.229091,
+          1.209886,
+          1.208391
+        ],
+        "acquire_8": [
+          0.551009,
+          0.529952,
+          0.526134
+        ],
+        "model_64": [
+          2.9036399999999998,
+          2.891944,
+          2.882852
+        ],
+        "native_64x1": [
+          17.932803,
+          18.050990000000002,
+          18.120005
+        ],
+        "native_64x8": [
+          140.97044200000002,
+          140.842702,
+          141.299878
+        ],
+        "native_8x64": [
+          145.975315,
+          147.10736,
+          148.070609
+        ],
+        "native_8x8": [
+          17.724069,
+          18.025073,
+          18.112948000000003
+        ]
+      },
+      "allocations": [
+        {
+          "estimated_MSE": 0.010217752230956275,
+          "method": "native_only",
+          "paths_per_source": 8,
+          "sampled_sources": 8
+        },
+        {
+          "estimated_MSE": 0.002061886880912033,
+          "method": "native_only",
+          "paths_per_source": 1,
+          "sampled_sources": 64
+        },
+        {
+          "estimated_MSE": 0.002921946736737361,
+          "method": "refit_moment_learned",
+          "paths_per_source": 8,
+          "sampled_sources": 8
+        },
+        {
+          "estimated_MSE": 0.008413601210158246,
+          "method": "native_only",
+          "paths_per_source": 64,
+          "sampled_sources": 8
+        },
+        {
+          "estimated_MSE": 0.00025773586011400415,
+          "method": "native_only",
+          "paths_per_source": 8,
+          "sampled_sources": 64
+        },
+        {
+          "estimated_MSE": 0.0011177957159393323,
+          "method": "refit_moment_learned",
+          "paths_per_source": 64,
+          "sampled_sources": 8
+        }
+      ]
+    }
+  },
+  "sources": {
+    "census_cpu": {
+      "path": "extension/strengthening_v1/cost/census_R1_addendum_v1/completion.json",
+      "sha256": "b1b247f0929ac827fa80fabbd5560d0c554204b712a35303fda682505e982cdf"
+    },
+    "cpu": {
+      "path": "extension/strengthening_v1/cost/completion.json",
+      "sha256": "2bc77c0a829a919f7db14bf064e3dcd5ae3e00add0e77b3b1883ac5ccf952ebe"
+    },
+    "fit": {
+      "path": "extension/strengthening_v1/training/runs/training/moment_learned_seed1701.json",
+      "sha256": "dbbc1e5ad623ec20823b2005e25874229d1ddc9382a9f522064f7571fecaad85"
+    },
+    "forecast": {
+      "path": "extension/strengthening_v1/confirmation_bank/results/forecast_base.json",
+      "sha256": "6d4da772118d7eb021db2f489ce0bf4577f7c7b5632bf30846ba6d65bca1aeb7"
+    },
+    "irt": {
+      "path": "extension/strengthening_v1/physical_baselines/irt_confirmation/sampling_profile_v1/results.json",
+      "sha256": "18402d61ff74c77080930397d339621102c2d4c5ceea115a69ba78a051bac847"
+    },
+    "utility": {
+      "path": "extension/strengthening_v1/confirmation_bank/utility_addendum_v2/results.json",
+      "sha256": "68ff2497bfb3a8a3c1669698264463bd690563669d22444fe78ed2fa7158db42"
+    }
+  }
+}

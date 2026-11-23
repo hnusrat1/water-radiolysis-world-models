@@ -1,0 +1,9 @@
+{
+  "frozen_utc": "2026-11-21T23:00:02.374172+00:00",
+  "new_action_scores_opened": false,
+  "sha256": {
+    "plan.json": "997dcdfeb3a5086ee32e252cdd6a3716faddd2f7227076a44b24e4bae1b60d02",
+    "replay.py": "01c8ee2795b5acc21975c911db9880578ab90e18dc4af06626dbf5f0fcbec5b9",
+    "score_predictions.py": "ddf53c3f6f125b48a4b2d44b2beabe8d5b133d0a01f0d0e75e09c110746da010"
+  }
+}

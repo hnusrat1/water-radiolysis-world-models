@@ -1,0 +1,27 @@
+{
+  "completed_utc": "2026-11-21T23:08:58.143866+00:00",
+  "plan_sha256": "997dcdfeb3a5086ee32e252cdd6a3716faddd2f7227076a44b24e4bae1b60d02",
+  "gate_sha256": "07de6d65776555b8ce87c942d58ccd56c37ba9723a2438707cee5ec5762ed6df",
+  "checks": {
+    "response_standardized_rms": 1.0923851714250486e-06,
+    "trajectory_standardized_rms": 1.2502009680886075e-06,
+    "response_max_molecules": 2.9041951393082854e-05,
+    "trajectory_max_molecules": 4.02157643648593e-05,
+    "max_budget_drift": 9.094947017729282e-13,
+    "minimum_count": 0.0,
+    "maximum_prejump_disagreement": 0.0,
+    "maximum_standard_positive_control_disagreement": 0.0,
+    "maximum_reducing_equivalent_drift": 5.613287612504791e-13,
+    "maximum_first_addition_species_count_error": 3.552713678800501e-15
+  },
+  "predictor_count": 16,
+  "archived_case_count": 576,
+  "archived_reference_paths": 73728,
+  "inputs_sha256": {
+    "family_losses.json": "cf53b2a3d274944c3a51d77c21cf0910e02683720f47bdc3560b647b1ccb03fc",
+    "replay.py": "01c8ee2795b5acc21975c911db9880578ab90e18dc4af06626dbf5f0fcbec5b9",
+    "score_predictions.py": "ddf53c3f6f125b48a4b2d44b2beabe8d5b133d0a01f0d0e75e09c110746da010",
+    "expected_results.json": "ab9e7d147b4f64becbb5de604a3b965fd460854291088ab43c841bd433b636ce",
+    "run_predictions.py": "3a87680d50cdc0ccc3453cbc13e57a85ae484c29c0633646d0675f603c0f19e2"
+  }
+}
