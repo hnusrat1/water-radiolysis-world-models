@@ -1,6 +1,6 @@
 # Supporting analyses and figures
 
-Run the commands below from the repository root. All inputs for these analyses are included. The [main README](../README.md) gives the primary paired comparison over the 100 and 400 eV source families.
+Run the commands below from the repository root. The compact replays use files included here. The temporal inference check also uses the linked data download. The [main README](../README.md) gives the primary paired comparison over the 100 and 400 eV source families.
 
 ## Fit-level and computational results
 
@@ -22,6 +22,14 @@ This NumPy script uses [per-family losses](action_transfer/family_losses.json) f
 
 [Expected output](action_transfer/expected_results.json) contains the full-precision estimates. The [analysis plan](action_transfer/plan.json) records the checkpoint, simulator-label and engine hashes. The [scoring record](action_transfer/scoring_freeze.json), [numerical checks](action_transfer/numerical_gate.json), [verification record](action_transfer/verification.json) and [independent checks](action_transfer/independent_verification.json) document the checks on those inputs.
 
+To check the result from molecular coordinates, download the [input archive](https://github.com/hnusrat1/water-radiolysis-world-models/releases/download/v1.0.0/ICWM_v13_ablation_training_and_evaluation_inputs.zip). In the repository's CPU inference environment, run the following with the path to the downloaded ZIP.
+
+```sh
+python supporting/action_transfer/verify_forecasts.py /path/to/ICWM_v13_ablation_training_and_evaluation_inputs.zip --full
+```
+
+The full check reconstructs all 9,216 paired forecasts and compares all family losses and paired intervals against the published values. Omit `--full` to check one three-pulse case with the preselected moment fit. [Temporal forecast instructions](action_transfer/README.txt) · [Verified CPU run](action_transfer/public_replay_verification.json)
+
 ## Redraw the paper's figures
 
 With the dependencies in the root requirements-figures.txt installed, run the two commands in order. The first creates the rendered directory.
@@ -33,6 +41,22 @@ python supporting/training_diagnostic/plot_fit_trajectories.py supporting/traini
 
 The first command creates Figures 1–4 from the [archived plotting inputs](figure_replay/plot_inputs.json). They cover the source cloud and intervention, transfer across energy, a representative forecast, and conditional forecast cost. The second creates the appendix figure of 200 eV training and validation trajectories from [367 logged observations](training_diagnostic/fit_trajectories.csv) across 15 fits. The open circles mark the checkpoints chosen by validation. [Fit diagnostics](training_diagnostic/fit_diagnostic_evidence.json) include each selected epoch and validation score, the held-out errors and the digests of the underlying records.
 
+To verify the training curves directly from the [15 original fit records](training_diagnostic/training_records), run the following. It checks each record's identity and the selected checkpoint before reproducing the CSV byte for byte.
+
+```sh
+python supporting/training_diagnostic/rebuild_history.py
+```
+
+## Mean-yield error and CPU time
+
+To regenerate the appendix figure comparing all 14 estimator and path allocations, use the same plotting environment as the main figures.
+
+```bash
+python supporting/figure_replay/utility_figure.py utility_charged_cost_B400.pdf
+```
+
+The horizontal axis includes CPU time for generating the sources. The 64-path and 512-path panels each compare an eight-source correction with direct sampling across all 64 sources.
+
 ## Provenance
 
-Every data file and Python script in this directory is a byte-for-byte copy of the corresponding member of the manuscript supplement ICWM_supplement_v9.zip (SHA-256 `9c566a97623c30022717282ba492c5d3e6f7185f935de95af3bc2e1e08b5bcaf`). The numerical environment used Python 3.12.15 and NumPy 2.5.4. The published figure rendering used Matplotlib 3.11.2, bundled DejaVu Sans and FreeType 2.14.3. A different plotting environment can produce different PDF bytes.
+The archived primary fit and endpoint records are fixed. The updated figure scripts use the same numerical observations as the v13 manuscript. The numerical environment used Python 3.12.15 and NumPy 2.5.4. The vector figures were drawn with Matplotlib 3.11.2, its bundled DejaVu Sans and FreeType 2.14.3. The versioned release includes the input digests, standalone computational checks and recorded outputs. [Code and data release](https://github.com/hnusrat1/water-radiolysis-world-models/releases/tag/v1.0.0)

@@ -108,7 +108,9 @@ def transfer():
             fits=row['per_fit']
             if len(fits)>1:
                 assert len(fits)==5
-                ax.scatter(fits,np.full(len(fits), yi+.19),s=6,color=COLORS[key],alpha=.63,linewidths=0)
+                seed_rows = yi + np.linspace(.14, .42, len(fits))
+                ax.scatter(fits,seed_rows,s=10,color=COLORS[key],alpha=.88,
+                           edgecolors='white',linewidths=.25,zorder=4)
         ax.set_xscale('log')
         ax.set_title(title,fontsize=8.6,pad=4)
         ax.set(xlim=(.009,1.56),ylim=(4.53,-.48))
@@ -131,22 +133,25 @@ def representative():
     methods=list(NAMES)[1:]
     species_labels={'OH':'OH','e_aq':r'$e^-_{\mathrm{aq}}$','H2O2':r'H$_2$O$_2$'}
     styles=['--','-.','-',':']
-    fig,axes=plt.subplots(3,4,figsize=(7.12,3.90),sharex=True,sharey='row')
+    fig,axes=plt.subplots(3,4,figsize=(7.12,3.90),sharex='col',sharey='row')
     fig.subplots_adjust(left=.105,right=.986,bottom=.135,top=.837,wspace=.22,hspace=.39)
     for r in rows:
         ax=axes[r['row'],r['column']]
         times=np.array(r['time'])
         assert r['family_id']==60096 and len(times)==11
-        before=times<r['injection_ns']
-        delta=np.array(r['native_mean']); se=np.array(r['native_MCSE'])
-        for seg in [before,~before]:
-            ax.fill_between(times[seg],(delta-se)[seg],(delta+se)[seg],color='.68',alpha=.52,lw=0)
-            ax.plot(times[seg],delta[seg],color='#252829',lw=1.05,marker='.',ms=2.3,zorder=5)
-            for name,ls in zip(methods,styles):
-                ax.plot(times[seg],np.asarray(r['models'][name])[seg],ls,color=COLORS[name],
-                        lw=1.05,marker='.',ms=1.9)
-        ax.axvline(r['injection_ns'],color='.55',ls=':',lw=.65)
-        ax.set_xscale('log')
+        after = times >= r['injection_ns']
+        elapsed = times[after] - r['injection_ns']
+        delta = np.array(r['native_mean'])[after]
+        se = np.array(r['native_MCSE'])[after]
+        ax.fill_between(elapsed,delta-se,delta+se,color='.68',alpha=.52,lw=0)
+        ax.plot(elapsed,delta,color='#252829',lw=1.05,marker='.',ms=2.6,zorder=5)
+        for name,ls in zip(methods,styles):
+            ax.plot(elapsed,np.asarray(r['models'][name])[after],ls,color=COLORS[name],
+                    lw=1.05,marker='.',ms=2.3)
+        stop = elapsed[-1]
+        ax.set_xlim(-.03 * stop, 1.03 * stop)
+        ax.set_xticks([0,5,10,15,19] if stop == 19 else [0,2.5,5,7.5,10])
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda x,pos:f'{x:g}'))
         ax.grid(alpha=.15,lw=.5)
         ax.tick_params(labelsize=7.7,pad=2)
         if r['column']==0:
@@ -158,7 +163,7 @@ def representative():
                bbox_to_anchor=(.52,.997),fontsize=7.8,frameon=False,columnspacing=1.13,handlelength=1.9,
                handletextpad=.38)
     fig.text(.008,.52,'Added − passive (molecules)',rotation='vertical',va='center',fontsize=8.4)
-    fig.text(.545,.038,'Time (ns)',ha='center',fontsize=8.5)
+    fig.text(.545,.038,'Time since addition (ns)',ha='center',fontsize=8.5)
     save(fig,'representative_B400_layout','Intervention response for four actions in a fixed 400 eV source family')
 
 
@@ -171,7 +176,10 @@ def accuracy_cost():
     assert (min(fits.values()),max(fits.values()))==(low,high) and np.isclose(np.mean(list(fits.values())),avg)
     fig,ax=plt.subplots(figsize=(7.1,3.37))
     fig.subplots_adjust(left=.089,right=.974,bottom=.170,top=.954)
-    ax.set(xscale='log',xlim=(.94,103),ylim=(-.025,1.48))
+    ax.set(xscale='log',yscale='log',xlim=(.90,122),ylim=(.044,1.85))
+    ax.yaxis.set_major_locator(FixedLocator([.05,.1,.2,.5,1,1.5]))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v,pos:f'{v:g}'))
+    ax.yaxis.set_minor_formatter(NullFormatter())
     ax.set_xlabel('Complete worker CPU for 32 paired cases (s)')
     ax.set_ylabel('20 ns response NMSE')
     ax.xaxis.set_major_locator(FixedLocator([1,2,4,8,16,32,64]))
@@ -192,9 +200,11 @@ def accuracy_cost():
         if key=='refit_moment_learned':
             assert y==fits[1701] and int(row['timing_cases'])==32
             offset=(5,-4)
-        if key=='paired_IRT_R64': offset=(0,6);ha='center'
+        if key=='paired_IRT_R64': offset=(0,7);ha='center'
+        if key=='paired_IRT_R1': offset=(3,5)
+        if key=='moment_physics': offset=(4,-8)
         ax.annotate(label,(x,y),xytext=offset,textcoords='offset points',ha=ha,fontsize=7.55)
-    inset=ax.inset_axes([.458,.542,.535,.44])
+    inset=ax.inset_axes([.493,.586,.499,.395])
     inset.set(xlim=(.063,.121),ylim=(0,1),xticks=[],yticks=[])
     inset.set_facecolor('#f7faf8')
     for spine in inset.spines.values():

@@ -1,0 +1,38 @@
+{
+  "study": "Exploratory transfer to new pulse schedules at 200 eV using the original fits",
+  "checked_utc": "2026-11-24T05:00:05.671888+00:00",
+  "device": "CPU, one Torch thread",
+  "python": "3.12.15",
+  "numpy": "2.5.4",
+  "torch": "2.15.0",
+  "safetensors": "0.8.0",
+  "public_input_zip_sha256": "6f17907f27655131da3dd05c87ae71bb9d724a045f3bffa6db9b0fcd12a72ea3",
+  "model_config_sha256": "e41f1c567aa0672e612c65b895fa4da2a6823ebd54ac9aaf958878cda9886f22",
+  "files_sha256": {
+    "verify_forecasts.py": "40211930a768629d77bcf275819a87b71baca80ad7f6e7526d0b2272f3d7e292",
+    "plan.json": "997dcdfeb3a5086ee32e252cdd6a3716faddd2f7227076a44b24e4bae1b60d02",
+    "three_pulse_reference.json": "4ead5bbc01740e1c29c34387f3b0b7c586ff07c5675bea107c4f94c8f57adae8",
+    "family_losses.json": "cf53b2a3d274944c3a51d77c21cf0910e02683720f47bdc3560b647b1ccb03fc",
+    "expected_results.json": "ab9e7d147b4f64becbb5de604a3b965fd460854291088ab43c841bd433b636ce"
+  },
+  "relocated_review_folder_quick": {
+    "cloud_families": 64,
+    "verified_fixed_predictors": 1,
+    "seed1701_three_pulse_case_id": "2016012",
+    "max_smoke_trajectory_difference": 0.0,
+    "paired_forecasts": 128,
+    "family_losses_checked": 0,
+    "max_family_loss_difference": null,
+    "summary_estimates_and_intervals_checked": false
+  },
+  "full_public_trajectory_replay": {
+    "cloud_families": 64,
+    "verified_fixed_predictors": 16,
+    "seed1701_three_pulse_case_id": "2016012",
+    "max_smoke_trajectory_difference": 0.0,
+    "paired_forecasts": 9216,
+    "family_losses_checked": 2048,
+    "max_family_loss_difference": 0.0,
+    "summary_estimates_and_intervals_checked": true
+  }
+}
